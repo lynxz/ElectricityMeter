@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sf="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
+             x:Class="Presenter.MeterPage"
+             Title="MeterPage">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Label
+                Text="Total Förbrukning"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+            <Label
+                x:Name="TotalConsumption"
+                Text=""
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2" />
+            <Label
+                Text="Aktuell Förbrukning"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+            <sf:SfRadialGauge x:Name="Gauge">
+                <sf:SfRadialGauge.Axes>
+                    <sf:RadialAxis Minimum="0.0" Maximum="4.0" ShowTicks="False">
+                        <sf:RadialAxis.AxisLineStyle>
+                            <sf:RadialLineStyle Thickness="30" />
+                        </sf:RadialAxis.AxisLineStyle>
+                        <sf:RadialAxis.Pointers>
+                            <sf:NeedlePointer
+                                Value="0.0"
+                                EnableAnimation="True"
+                                AnimationDuration="3000"
+                                NeedleStartWidth="0"
+                                NeedleEndWidth="4"
+                                NeedleFill="#FFDADADA"
+                                KnobFill="White"
+                                KnobStroke="#FFDADADA"
+                                KnobStrokeThickness="0.04"
+                                TailFill="#FFDADADA"
+                                TailLength="0.15"
+                                TailWidth="15"
+                                KnobRadius="0.09" />
+                            <sf:RangePointer
+                                Value="0.0"
+                                PointerWidth="30"
+                                EnableAnimation="True"
+                                AnimationDuration="3000"
+                                Fill="Orange" />
+                        </sf:RadialAxis.Pointers>
+                    </sf:RadialAxis>
+                </sf:SfRadialGauge.Axes>
+            </sf:SfRadialGauge>
+            <Label
+                x:Name="CurrentConsumption"
+                Text=""
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2" />
+            <Button
+                x:Name="BackBtn"
+                Text="Tillbaka"
+                HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
